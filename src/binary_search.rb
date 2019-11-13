@@ -1,6 +1,5 @@
-# @param [Array] arr
-# @param [Numeric] item
-# @return [Object]
+# frozen_string_literal: true
+
 def binary_search(arr, item)
   high = arr.length - 1, low = 0
   while low <= high
