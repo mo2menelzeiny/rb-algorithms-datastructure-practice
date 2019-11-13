@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 def binary_search(arr, item)
-  high = arr.length - 1, low = 0
+  high = arr.length - 1
+  low = 0
   while low <= high
     mid = ((high + low) / 2).round
     return mid if arr[mid] == item
