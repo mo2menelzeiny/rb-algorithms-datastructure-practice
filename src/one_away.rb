@@ -20,12 +20,19 @@ end
 # @param[String] s1
 # @param[String] s2
 def is_one_away(s1, s2)
-  counts = {}
-  count_char(counts, s1)
-  count_char(counts, s2)
-  # TODO: complete algorithm
+  false if s1.length != s2.length || ((s1.length - s2.length).abs != 1)
+  counts1 = {}
+  counts2 = {}
+  count_char(counts1, s1)
+  count_char(counts2, s2)
+  not_found = 0
+  counts1.each { |key, val| not_found += 1 if val != counts2[key] }
+  (s1.length == s2.length && not_found == 1) || ((s1.length - s2.length).abs == 1 && not_found == 1)
 end
 
-
-is_one_away('haha', 'hah')
-
+puts is_one_away('haha', 'hahv')
+puts is_one_away('haha', 'hah')
+puts is_one_away('haha', 'ha')
+puts is_one_away('haha', 'zhza')
+puts is_one_away('haha', 'zhzazz')
+puts is_one_away('haha', 'zaha')
