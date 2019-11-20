@@ -1,31 +1,39 @@
-# frozen_string_literal: true
+require File.dirname(__FILE__) + '/linked_node'
 
-# SinglyLinkedList
-class SinglyLinkedList
-  # @type[SinglyLinkedList]
-  @next = nil
-  # @type[SinglyLinkedList]
-  @head = nil
-  # @type[SinglyLinkedList]
-  @tail = nil
+# List class
+class LinkedList
+  # @return [LinkedNode]
+  attr_accessor :head
+  # @return [LinkedNode]
+  attr_accessor :tail
 
-  # @return [SinglyLinkedList]
-  attr_accessor :next
-
-  # @param[Object] value
-  def initialize(value)
-    # @type[Object]
-    @value = value
+  # @param[LinkedNode] head
+  # @param[LinkedNode] tail
+  def initialize(head = nil, tail = nil)
+    # @type[LinkedNode]
+    @head = head
+    # @type[LinkedNode]
+    @tail = tail
   end
 
-  # @param[Object]
+  # @param[Object] value
+  # @return[LinkedNode]
   def append_to_tail(value)
-    self.next = self.next.next until self.next.nil?
-    self.next = SinglyLinkedList.new(value)
+    @tail.next = LinkedNode.new(value, @tail, nil)
+    @tail = @tail.next
+  end
+
+  # @return[LinkedNode]
+  def remove_from_tail
+    @tail.prev.next = nil
+    @tail = @tail.prev
   end
 end
 
-node = SinglyLinkedList.new(0)
-node = node.append_to_tail(1)
-node = node.append_to_tail(2)
-print head
+root_node = LinkedNode.new(0)
+list = LinkedList.new(root_node, root_node)
+
+list.append_to_tail(1)
+list.append_to_tail(2)
+list.append_to_tail(3)
+list.remove_from_tail
