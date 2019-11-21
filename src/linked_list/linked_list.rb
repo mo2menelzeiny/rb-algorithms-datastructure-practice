@@ -31,6 +31,7 @@ class LinkedList
 
   # @param[Object] target
   # @param[Object] value
+  # @return [LinkedNode]
   def insert_at(target, value)
     current = @head
     current = current.next until current.next.nil? || current.value == target
