@@ -59,14 +59,3 @@ class LinkedList
     end
   end
 end
-
-root_node = LinkedNode.new(0)
-list = LinkedList.new(root_node, root_node)
-
-list.append_to_tail(1)
-list.append_to_tail(2)
-list.append_to_tail(4)
-list.insert_at(2, 3)
-list.insert_at(22, 5)
-list.remove_from_tail
-list.delete_at 4
