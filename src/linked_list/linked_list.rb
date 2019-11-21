@@ -25,7 +25,6 @@ class LinkedList
 
   # @return[LinkedNode]
   def remove_from_tail
-    @tail.prev.next = nil
     @tail = @tail.prev
   end
 
