@@ -7,6 +7,9 @@ class LinkedNode
   attr_accessor :next
 
 
+  # @return [LinkedNode]
+  attr_accessor :value
+
   # @param[Object] value
   def initialize(value, prev = nil, nxt = nil)
     # @type[Object]

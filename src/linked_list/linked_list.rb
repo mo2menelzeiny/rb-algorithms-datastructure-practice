@@ -28,6 +28,14 @@ class LinkedList
     @tail.prev.next = nil
     @tail = @tail.prev
   end
+
+  # @param[Object] target
+  # @param[Object] value
+  def insert_at(target, value)
+    current = @head
+    current = current.next until current.next.nil? || current.value == target
+    current.next = LinkedNode.new(value, current, current.next)
+  end
 end
 
 root_node = LinkedNode.new(0)
@@ -35,5 +43,6 @@ list = LinkedList.new(root_node, root_node)
 
 list.append_to_tail(1)
 list.append_to_tail(2)
-list.append_to_tail(3)
+list.append_to_tail(4)
+list.insert_at(2, 3)
 list.remove_from_tail
