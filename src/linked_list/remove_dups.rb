@@ -28,5 +28,4 @@ list.append_to_tail(2)
 list.append_to_tail(3)
 list.append_to_tail(4)
 list.append_to_tail(4)
-
 remove_dups(list)
