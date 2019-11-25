@@ -8,19 +8,15 @@ require_relative './linked_node'
 def partition(list_head, pivot)
   current = list_head
   p_runner = LinkedNode.new(0, nil, list_head) # temp node to mark partition runner
-  until current.next.nil?
+  until current.nil?
     if current.value < pivot
       p_runner = p_runner.next
-      # swap
       temp = current.value
       current.value = p_runner.value
       p_runner.value = temp
     end
     current = current.next
   end
-  temp = current.value
-  current.value = p_runner.next.value
-  p_runner.next.value = temp
 end
 
 # @param[LinkedNode] prev
