@@ -58,4 +58,22 @@ head_d = list_d = LinkedNode.new(6)
 list_d = list_d.next = LinkedNode.new(8)
 list_d.next = LinkedNode.new(5)
 
-sum_lists(head_c, head_d)
+# sum_lists(head_c, head_d)
+
+# @param[LinkedNode] list_a
+# @param[LinkedNode] list_b
+# @param[Numeric] curry
+def sum_lists_recursive(list_a, list_b, curry)
+  return if list_a.nil? && list_b.nil? && curry.zero?
+
+  value = 0
+  value += list_a.value unless list_a.nil?
+  value += list_b.value unless list_b.nil?
+  result = LinkedNode.new((value >= 10 ? value / 10 : value) + curry)
+  result.next = sum_lists_recursive((list_a.nil? ? nil : list_a.next),
+                                    (list_b.nil? ? nil : list_b.next),
+                                    (value >= 10 ? value % 10 : 0))
+  result
+end
+
+sum_lists_recursive(head_c, head_d, 0)
