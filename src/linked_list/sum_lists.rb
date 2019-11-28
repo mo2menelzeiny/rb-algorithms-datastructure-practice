@@ -21,6 +21,10 @@ def sum_lists(list_a, list_b)
       tail.next = result
       tail = result
     end
+    if list_a.nil? && list_b.nil? && value.nonzero? && !tail.nil?
+      tail.next = LinkedNode.new(1)
+      tail = result
+    end
   end
   head
 end
@@ -46,4 +50,12 @@ list_b.next = LinkedNode.new(2)
 
 sum_lists(head_a, head_b)
 
+head_c = list_c = LinkedNode.new(9)
+list_c = list_c.next = LinkedNode.new(7)
+list_c.next = LinkedNode.new(8)
 
+head_d = list_d = LinkedNode.new(6)
+list_d = list_d.next = LinkedNode.new(8)
+list_d.next = LinkedNode.new(5)
+
+sum_lists(head_c, head_d)
