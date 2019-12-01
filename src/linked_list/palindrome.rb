@@ -35,3 +35,10 @@ list_b = list_b.next = LinkedNode.new('a')
 list_b.next = LinkedNode.new('b')
 
 puts is_palindrome(head_b)
+
+
+head_c = list_c = LinkedNode.new('1')
+list_c = list_c.next = LinkedNode.new('0')
+list_c.next = LinkedNode.new('0')
+
+puts is_palindrome(head_c)
