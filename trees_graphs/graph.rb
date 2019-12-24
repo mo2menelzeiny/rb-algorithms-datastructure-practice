@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # @!attribute value
 #   @return [Object]
 # @!attribute children
