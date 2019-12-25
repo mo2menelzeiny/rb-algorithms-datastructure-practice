@@ -1,17 +1,12 @@
 # @param [Hash<Array>] tree
-# @param [Array] visited
 # @param [String] root
 # @param [Numeric] level
 # @param [Array<Array>] list
-def build_list(tree, visited, list, root, level)
+def build_list(tree, list, root, level)
   list[level] = [] unless tree[root].empty? || list[level].is_a?(Array)
   tree[root].each do |i|
-    unless visited.include? i
-      visited << i
-      list[level] << build_list(tree, visited, list, i, level + 1)
-    end
+    list[level] << build_list(tree, list, i, level + 1)
   end
-
   root
 end
 
@@ -19,8 +14,7 @@ end
 # # @param [String] root
 def list_of_depths(tree, root)
   list = [[root]]
-  visited = [root]
-  build_list(tree, visited, list, root, 1)
+  build_list(tree, list, root, 1)
   list
 end
 
