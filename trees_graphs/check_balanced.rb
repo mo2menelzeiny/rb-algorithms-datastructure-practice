@@ -16,7 +16,7 @@ def check_balanced(tree, root)
   left = check_nodes(tree, tree[root][0], 1)
   right = check_nodes(tree, tree[root][1], 1)
   result = (left - right).abs
-  result.zero? || result == 1
+  result <= 1
 end
 
 tree = {
