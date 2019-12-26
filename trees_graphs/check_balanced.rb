@@ -48,7 +48,7 @@ puts check_balanced(tree, 'A')
 tree = {
     'A' => ['B', 'C'],
     'B' => [],
-    'C' => [],
+    'C' => []
 }
 
 puts check_balanced(tree, 'A')
